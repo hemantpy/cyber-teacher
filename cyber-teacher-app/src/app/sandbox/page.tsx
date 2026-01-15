@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { SimulationCanvas } from '@/components/canvas/SimulationCanvas';
 import { SvgOverlay } from '@/components/svg/SvgOverlay';
@@ -26,10 +26,75 @@ const DEFENSE_TYPES = [
 ];
 
 export default function SandboxPage() {
-    const { networkHealth, damageNetwork, healNetwork, addLog, clearLogs, logs } = useSimulationStore();
+    const {
+        networkHealth,
+        damageNetwork,
+        healNetwork,
+        addLog,
+        clearLogs,
+        logs,
+        setEntities,
+        clearEntities,
+        clearConnections,
+        clearPackets
+    } = useSimulationStore();
     const { playAttack, playDefense, playSuccess, playError } = useSound();
     const [attackHistory, setAttackHistory] = useState<string[]>([]);
     const [defenseHistory, setDefenseHistory] = useState<string[]>([]);
+
+    useEffect(() => {
+        // Initialize Sandbox Environment
+        clearEntities();
+        clearConnections();
+        clearPackets();
+
+        // precise delay to ensure store update
+        setTimeout(() => {
+            const sandboxEntities = new Map();
+
+            // 1. Gateway Router
+            sandboxEntities.set('router-01', {
+                id: 'router-01',
+                type: 'Router',
+                position: { x: 0, y: -50 },
+                status: 'active',
+                metadata: { label: 'Gateway', ip: '192.168.1.1' }
+            });
+
+            // 2. Web Server
+            sandboxEntities.set('server-01', {
+                id: 'server-01',
+                type: 'Server',
+                position: { x: 150, y: -50 },
+                status: 'active',
+                metadata: { label: 'Corp Server', ip: '10.0.0.5' }
+            });
+
+            // 3. User PC
+            sandboxEntities.set('pc-01', {
+                id: 'pc-01',
+                type: 'PC',
+                position: { x: -150, y: 50 },
+                status: 'active',
+                metadata: { label: 'Admin PC', ip: '192.168.1.10' }
+            });
+
+            // 4. Firewall
+            sandboxEntities.set('fw-01', {
+                id: 'fw-01',
+                type: 'Firewall',
+                position: { x: 75, y: -50 },
+                status: 'active',
+                metadata: { label: 'Main Firewall' }
+            });
+
+            setEntities(sandboxEntities);
+        }, 100);
+
+        return () => {
+            clearEntities();
+        };
+    }, []);
 
     const handleAttack = useCallback((attack: typeof ATTACK_TYPES[0]) => {
         playAttack(attack.id as any);

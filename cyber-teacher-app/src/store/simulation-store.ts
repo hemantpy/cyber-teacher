@@ -48,6 +48,7 @@ interface SimulationState {
     removeEntity: (id: string) => void;
     updateEntityStatus: (id: string, status: EntityStatus) => void;
     updateEntityPosition: (id: string, x: number, y: number) => void;
+    setEntities: (entities: Map<string, NetworkEntity>) => void;
     clearEntities: () => void;
 
     // Actions - Connections
@@ -148,6 +149,9 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
         newEntities.set(id, { ...entity, position: { x, y } });
         return { entities: newEntities };
     }),
+
+    // Entity actions
+    setEntities: (entities) => set({ entities }),
 
     clearEntities: () => set({ entities: new Map() }),
 
