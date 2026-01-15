@@ -135,6 +135,36 @@ export function RightPanel() {
                 borderColor: '#22D3EE30'
             }}
         >
+            {/* Details Panel - Contextual Info */}
+            <div className="border-b p-3" style={{ borderColor: '#22D3EE20' }}>
+                <div className="flex items-center gap-2 mb-3">
+                    <h3 className="text-xs font-bold uppercase tracking-wider" style={{ color: '#94A3B8' }}>
+                        DETAILS
+                    </h3>
+                </div>
+                <div className="space-y-2">
+                    {/* Dynamic context based on current step */}
+                    <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                        <span className="text-xs text-slate-300">Bidirectional Communication</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                        <span className="text-xs text-slate-300">Cloud Services</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                        <span className="text-xs text-slate-300">Global Reach</span>
+                    </div>
+                    {networkHealth < 100 && (
+                        <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+                            <span className="text-xs text-red-400">Network Under Stress</span>
+                        </div>
+                    )}
+                </div>
+            </div>
+
             {/* Attack Engine */}
             <div className="border-b p-3" style={{ borderColor: '#EF444430' }}>
                 <div className="flex items-center gap-2 mb-3">

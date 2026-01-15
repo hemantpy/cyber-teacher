@@ -36,6 +36,8 @@ interface SimulationState {
 
     // Network state
     networkHealth: number;
+    threatLevel: number; // 0-100 threat meter
+    elapsedTime: number; // seconds since simulation started
     logs: LogEntry[];
 
     // Viewport state
@@ -82,6 +84,11 @@ interface SimulationState {
     damageNetwork: (amount: number) => void;
     healNetwork: (amount: number) => void;
 
+    // Actions - Threat & Time
+    setThreatLevel: (level: number) => void;
+    setElapsedTime: (time: number) => void;
+    incrementElapsedTime: () => void;
+
     // Actions - Viewport
     setViewportOffset: (x: number, y: number) => void;
     setDragging: (isDragging: boolean) => void;
@@ -104,6 +111,8 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
     isPaused: false,
     playbackSpeed: 1,
     networkHealth: 100,
+    threatLevel: 0,
+    elapsedTime: 0,
     logs: [],
     viewport: {
         offsetX: 0,
@@ -247,6 +256,17 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
 
     healNetwork: (amount) => set((state) => ({
         networkHealth: Math.min(100, state.networkHealth + amount)
+    })),
+
+    // Threat & Time actions
+    setThreatLevel: (level) => set({
+        threatLevel: Math.max(0, Math.min(100, level))
+    }),
+
+    setElapsedTime: (time) => set({ elapsedTime: time }),
+
+    incrementElapsedTime: () => set((state) => ({
+        elapsedTime: state.elapsedTime + 1
     })),
 
     // Viewport actions
