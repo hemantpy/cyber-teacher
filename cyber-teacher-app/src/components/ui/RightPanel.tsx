@@ -23,7 +23,11 @@ const PROTOCOL_COLORS: Record<string, string> = {
     SYN: '#EF4444'
 };
 
-export function RightPanel() {
+interface RightPanelProps {
+    onStartQuiz?: () => void;
+}
+
+export function RightPanel({ onStartQuiz }: RightPanelProps) {
     const {
         logs,
         clearLogs,
@@ -35,6 +39,8 @@ export function RightPanel() {
     const logsEndRef = useRef<HTMLDivElement>(null);
     const isLessonActive = currentLesson !== null;
     const currentStep = currentLesson?.steps[currentStepIndex];
+    const isLastStep = currentLesson && currentStepIndex === currentLesson.steps.length - 1;
+    const hasQuiz = !!currentLesson?.quiz;
 
     useEffect(() => {
         logsEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -120,6 +126,18 @@ export function RightPanel() {
                                 </p>
                             </div>
                         )}
+                        {isLastStep && hasQuiz && (
+                            <button
+                                onClick={onStartQuiz}
+                                className="w-full mt-3 py-2 rounded-lg text-xs font-bold text-white transition-all hover:scale-[1.02] animate-pulse"
+                                style={{
+                                    background: 'linear-gradient(to right, #22D3EE, #3B82F6)',
+                                    boxShadow: '0 0 15px rgba(34, 211, 238, 0.3)'
+                                }}
+                            >
+                                📝 Take Quiz
+                            </button>
+                        )}
                     </div>
 
                     {/* Device Status */}
@@ -131,7 +149,7 @@ export function RightPanel() {
                             </h3>
                         </div>
                         <div className="space-y-1.5">
-                            {entities.filter(e => e.type !== 'packet').slice(0, 5).map((entity) => (
+                            {Array.from(entities.values()).slice(0, 5).map((entity) => (
                                 <div
                                     key={entity.id}
                                     className="flex items-center gap-2 p-1.5 rounded"
@@ -146,7 +164,7 @@ export function RightPanel() {
                                         }}
                                     />
                                     <span className="text-[11px] text-slate-200 truncate flex-1">
-                                        {entity.label || entity.type}
+                                        {entity.metadata?.label || entity.type}
                                     </span>
                                     <span className="text-[9px] text-slate-500 capitalize">
                                         {entity.status || 'idle'}

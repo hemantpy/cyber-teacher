@@ -8,6 +8,7 @@ import { SettingsPanel } from '@/components/ui/SettingsPanel';
 const navItems = [
     { name: 'Lessons', href: '/lessons', icon: '📚' },
     { name: 'Simulation', href: '/simulation', icon: '🖥️' },
+    { name: 'Sandbox', href: '/sandbox', icon: '⚔️' },
     { name: 'About', href: '/about', icon: 'ℹ️' },
 ];
 

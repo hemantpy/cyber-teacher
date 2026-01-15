@@ -61,6 +61,20 @@ export interface LessonStep {
     onComplete?: 'auto' | 'click' | 'wait';
 }
 
+export interface QuizQuestion {
+    id: string;
+    question: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+}
+
+export interface Quiz {
+    id: string;
+    title: string;
+    questions: QuizQuestion[];
+}
+
 export interface Lesson {
     id: string;
     title: string;
@@ -71,6 +85,7 @@ export interface Lesson {
     steps: LessonStep[];
     initialEntities?: LessonEntitySpawn[];
     initialConnections?: LessonConnection[];
+    quiz?: Quiz;
 }
 
 export interface LessonProgress {

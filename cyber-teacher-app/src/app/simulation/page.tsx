@@ -10,11 +10,16 @@ import { BottomControls } from '@/components/ui/BottomControls';
 import { SvgOverlay } from '@/components/svg/SvgOverlay';
 import { Navigation } from '@/components/layout/Navigation';
 import { HelpOverlay } from '@/components/ui/HelpOverlay';
+import { QuizModal } from '@/components/ui/QuizModal';
 import { useKeyboardShortcuts } from '@/hooks/use-keyboard-shortcuts';
+import { useSimulationStore } from '@/store/simulation-store';
 
 export default function SimulationPage() {
     const [activePanel, setActivePanel] = useState<'left' | 'canvas' | 'right'>('canvas');
     const [showHelp, setShowHelp] = useState(false);
+    const [showQuiz, setShowQuiz] = useState(false);
+
+    const { currentLesson } = useSimulationStore();
 
     // Toggle help
     const toggleHelp = useCallback(() => {
@@ -25,6 +30,14 @@ export default function SimulationPage() {
     useKeyboardShortcuts({
         onToggleHelp: toggleHelp,
     });
+
+    const handleQuizComplete = (score: number) => {
+        // Here we could update user progress, unlock next chapter, etc.
+        console.log('Quiz completed with score:', score);
+
+        // Don't close immediately so user can see results
+        // User closes manually via "Continue Journey" which calls onClose
+    };
 
     return (
         <div className="h-screen w-screen flex flex-col overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
@@ -116,7 +129,7 @@ export default function SimulationPage() {
           w-full md:w-72 
           flex-shrink-0
         `}>
-                    <RightPanel />
+                    <RightPanel onStartQuiz={() => setShowQuiz(true)} />
                 </div>
             </div>
 
@@ -125,6 +138,16 @@ export default function SimulationPage() {
 
             {/* Help Overlay */}
             <HelpOverlay isOpen={showHelp} onClose={() => setShowHelp(false)} />
+
+            {/* Quiz Modal */}
+            {currentLesson?.quiz && (
+                <QuizModal
+                    quiz={currentLesson.quiz}
+                    isOpen={showQuiz}
+                    onClose={() => setShowQuiz(false)}
+                    onComplete={handleQuizComplete}
+                />
+            )}
         </div>
     );
 }

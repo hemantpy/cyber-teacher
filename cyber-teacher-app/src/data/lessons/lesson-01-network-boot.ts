@@ -414,5 +414,33 @@ export const networkBootLesson: Lesson = {
             },
             onComplete: 'click'
         }
-    ]
+    ],
+
+    quiz: {
+        id: 'quiz-01',
+        title: 'Network Boot Quiz',
+        questions: [
+            {
+                id: 'q1',
+                question: 'What protocol assigns IP addresses automatically?',
+                options: ['DNS', 'DHCP', 'ARP', 'HTTP'],
+                correctIndex: 1,
+                explanation: 'DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses to devices on a network.'
+            },
+            {
+                id: 'q2',
+                question: 'What does ARP do?',
+                options: ['Secures the connection', 'Resolves domain names', 'Maps IP addresses to MAC addresses', 'Routes packets'],
+                correctIndex: 2,
+                explanation: 'ARP (Address Resolution Protocol) maps logical IP addresses to physical MAC addresses so devices can communicate on a local network.'
+            },
+            {
+                id: 'q3',
+                question: 'Which protocol is used for secure web browsing?',
+                options: ['HTTP', 'FTP', 'HTTPS', 'Telnet'],
+                correctIndex: 2,
+                explanation: 'HTTPS (HTTP Secure) uses TLS encryption to secure communications between your browser and the web server.'
+            }
+        ]
+    }
 };
