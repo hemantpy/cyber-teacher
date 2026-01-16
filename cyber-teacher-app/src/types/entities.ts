@@ -54,49 +54,49 @@ export const ENTITY_VISUALS: Record<EntityType, {
   PC: {
     shape: 'rectangle',
     color: '#3B82F6', // blue
-    icon: '💻',
+    icon: 'PC',
     size: { width: 60, height: 50 }
   },
   Router: {
     shape: 'rectangle',
     color: '#8B5CF6', // purple
-    icon: '📡',
+    icon: 'RTR',
     size: { width: 70, height: 40 }
   },
   Firewall: {
     shape: 'shield',
     color: '#F59E0B', // amber
-    icon: '🛡️',
+    icon: 'FW',
     size: { width: 50, height: 60 }
   },
   ISP: {
     shape: 'circle',
     color: '#6366F1', // indigo
-    icon: '🌐',
+    icon: 'ISP',
     size: { width: 60, height: 60 }
   },
   DNS: {
     shape: 'hexagon',
     color: '#A855F7', // purple
-    icon: '📖',
+    icon: 'DNS',
     size: { width: 55, height: 55 }
   },
   Server: {
     shape: 'stack',
     color: '#10B981', // emerald
-    icon: '🖥️',
+    icon: 'SRV',
     size: { width: 50, height: 65 }
   },
   Attacker: {
     shape: 'triangle',
     color: '#EF4444', // red
-    icon: '☠️',
+    icon: 'ATK',
     size: { width: 50, height: 50 }
   },
   Cloud: {
     shape: 'cloud',
     color: '#0EA5E9', // sky
-    icon: '☁️',
+    icon: 'CLD',
     size: { width: 80, height: 50 }
   }
 };

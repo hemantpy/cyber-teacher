@@ -23,7 +23,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'beginner',
         topics: ['Computer Basics', 'NIC Initialization', 'Boot Process'],
         status: 'available',
-        icon: '💻'
+        icon: ''
     },
     {
         id: 'lesson-02',
@@ -35,7 +35,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'beginner',
         topics: ['DHCP', 'IP Address', 'Gateway'],
         status: 'available',
-        icon: '🌐'
+        icon: ''
     },
     {
         id: 'lesson-03',
@@ -47,7 +47,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'intermediate',
         topics: ['DDoS Attack', 'Rate Limiting', 'Traffic Analysis'],
         status: 'available',
-        icon: '🌊'
+        icon: ''
     },
     {
         id: 'lesson-04',
@@ -59,7 +59,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'intermediate',
         topics: ['Trojans', 'Malware Detection', 'Quarantine'],
         status: 'available',
-        icon: '🐴'
+        icon: '�'
     },
     {
         id: 'lesson-05',
@@ -71,7 +71,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'intermediate',
         topics: ['SQL Injection', 'Input Validation', 'Database Security'],
         status: 'available',
-        icon: '💉'
+        icon: ''
     },
     {
         id: 'lesson-06',
@@ -83,7 +83,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'advanced',
         topics: ['MitM Attack', 'Encryption', 'HTTPS', 'Certificates'],
         status: 'available',
-        icon: '👤'
+        icon: ''
     },
     {
         id: 'lesson-07',
@@ -95,7 +95,7 @@ export const lessonsData: LessonCard[] = [
         difficulty: 'advanced',
         topics: ['Combined Attacks', 'Defense Strategy', 'Incident Response'],
         status: 'available',
-        icon: '⚔️'
+        icon: ''
     }
 ];
 

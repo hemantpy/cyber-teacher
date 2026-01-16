@@ -38,7 +38,7 @@ export default function CampaignPage() {
                         border: '1px solid rgba(139, 92, 246, 0.3)'
                     }}
                 >
-                    <span className="text-purple-400">🗺️</span>
+                    <span className="text-purple-400"></span>
                     <span className="text-sm font-medium text-purple-400">CAMPAIGN MODE</span>
                 </div>
 
@@ -109,7 +109,7 @@ export default function CampaignPage() {
                                             }}
                                         >
                                             <span className="text-2xl md:text-3xl mb-1">
-                                                {isCompleted ? '✓' : unlocked ? chapter.id : '🔒'}
+                                                {isCompleted ? '✓' : unlocked ? chapter.id : ''}
                                             </span>
                                             {unlocked && !isCompleted && progress > 0 && (
                                                 <div className="w-12 h-1 rounded-full bg-white/30 overflow-hidden">
@@ -206,7 +206,7 @@ export default function CampaignPage() {
 
                                         {!unlocked && (
                                             <p className="text-xs text-slate-500">
-                                                🔒 Complete previous chapter to unlock
+                                                 Complete previous chapter to unlock
                                             </p>
                                         )}
                                     </div>

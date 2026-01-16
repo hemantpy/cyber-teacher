@@ -253,7 +253,7 @@ function drawEncryptionShimmer(
     ctx.font = 'bold 12px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('🔒', centerX, centerY + 14);
+    ctx.fillText('', centerX, centerY + 14);
     ctx.globalAlpha = 1;
 }
 

@@ -385,7 +385,7 @@ export const networkBootLesson: Lesson = {
                     'Server Hello: Choose cipher + send certificate',
                     'Key Exchange: Generate session keys',
                     'Finished: Encrypted tunnel ready',
-                    '🔒 Connection is now secure!'
+                    ' Connection is now secure!'
                 ],
                 highlight: ['pc', 'server'],
                 aiExplanation: 'TLS (Transport Layer Security) creates an encrypted tunnel. Even if someone intercepts the traffic, they can\'t read it without the secret keys!'
@@ -399,7 +399,7 @@ export const networkBootLesson: Lesson = {
             name: 'Connected',
             duration: 2000,
             ui: {
-                title: '✅ Connection Complete!',
+                title: ' Connection Complete!',
                 subtitle: 'Secure communication established',
                 details: [
                     'All protocols negotiated successfully',

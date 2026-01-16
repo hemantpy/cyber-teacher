@@ -71,7 +71,7 @@ export function LeftPanel() {
                 style={{ borderColor: '#22D3EE20' }}
             >
                 <div className="flex items-center gap-2 mb-1">
-                    <span className="text-cyan-400">📚</span>
+                    <span className="text-cyan-400"></span>
                     <h2
                         className="text-xs font-bold uppercase tracking-wider"
                         style={{ color: '#22D3EE' }}
@@ -114,7 +114,7 @@ export function LeftPanel() {
                             border: `1px solid ${isSlowMotion ? '#8B5CF6' : '#334155'}`
                         }}
                     >
-                        🐢 {isSlowMotion ? 'Slow Motion ON' : 'Slow Motion'}
+                        � {isSlowMotion ? 'Slow Motion ON' : 'Slow Motion'}
                     </button>
                 </div>
             )}
@@ -192,7 +192,7 @@ export function LeftPanel() {
                                 {/* Replay indicator */}
                                 {isCompleted && isHovered && (
                                     <span className="text-[9px]" style={{ color: '#64748B' }}>
-                                        ↩️
+                                        ↩
                                     </span>
                                 )}
                             </div>
@@ -208,7 +208,7 @@ export function LeftPanel() {
             >
                 <div className="px-4 py-3">
                     <div className="flex items-center gap-2 mb-3">
-                        <span>🤖</span>
+                        <span>�</span>
                         <h3
                             className="text-xs font-bold uppercase tracking-wider"
                             style={{ color: '#8B5CF6' }}
@@ -251,7 +251,7 @@ export function LeftPanel() {
                                     }}
                                 >
                                     <p className="text-xs font-medium mb-1" style={{ color: '#8B5CF6' }}>
-                                        💡 Did you know?
+                                         Did you know?
                                     </p>
                                     <p
                                         className="text-xs leading-relaxed"

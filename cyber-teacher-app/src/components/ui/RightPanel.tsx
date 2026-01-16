@@ -70,7 +70,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                                 boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)'
                             }}
                         >
-                            <span className="text-xl">🎯</span>
+                            <span className="text-xl"></span>
                         </div>
                         <h3 className="text-base font-bold text-white mb-1">Get Started</h3>
                         <p className="text-xs text-slate-400">Select a lesson to begin</p>
@@ -83,7 +83,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                             style={{ background: 'rgba(34, 211, 238, 0.1)', border: '1px solid rgba(34, 211, 238, 0.3)' }}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="text-xl">📚</span>
+                                <span className="text-xl"></span>
                                 <div>
                                     <h4 className="text-sm font-semibold text-cyan-400">Browse Lessons</h4>
                                     <p className="text-[10px] text-slate-400">7 interactive lessons</p>
@@ -96,7 +96,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                             style={{ background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)' }}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="text-xl">🗺️</span>
+                                <span className="text-xl"></span>
                                 <div>
                                     <h4 className="text-sm font-semibold text-purple-400">Campaign Mode</h4>
                                     <p className="text-[10px] text-slate-400">Progress through chapters</p>
@@ -111,7 +111,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                     {/* What's Happening */}
                     <div className="p-3 border-b" style={{ borderColor: '#22D3EE20' }}>
                         <div className="flex items-center gap-2 mb-2">
-                            <span>📖</span>
+                            <span></span>
                             <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400">
                                 What's Happening
                             </h3>
@@ -135,7 +135,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                                     boxShadow: '0 0 15px rgba(34, 211, 238, 0.3)'
                                 }}
                             >
-                                📝 Take Quiz
+                                � Take Quiz
                             </button>
                         )}
                     </div>
@@ -143,7 +143,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                     {/* Device Status */}
                     <div className="p-3 border-b" style={{ borderColor: '#22D3EE20' }}>
                         <div className="flex items-center gap-2 mb-2">
-                            <span>🖥️</span>
+                            <span></span>
                             <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400">
                                 Devices
                             </h3>
@@ -178,7 +178,7 @@ export function RightPanel({ onStartQuiz }: RightPanelProps) {
                     <div className="flex-1 flex flex-col overflow-hidden">
                         <div className="flex items-center justify-between px-3 py-2 border-b" style={{ borderColor: '#22D3EE20' }}>
                             <div className="flex items-center gap-2">
-                                <span>📡</span>
+                                <span></span>
                                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                                     Activity
                                 </h3>

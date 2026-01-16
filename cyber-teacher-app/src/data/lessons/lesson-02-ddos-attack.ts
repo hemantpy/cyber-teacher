@@ -134,7 +134,7 @@ export const ddosAttackLesson: Lesson = {
                 }
             ],
             ui: {
-                title: '⚠️ Threat Detected',
+                title: '⚠ Threat Detected',
                 subtitle: 'Botnet nodes coming online',
                 details: [
                     'Multiple suspicious IPs detected',
@@ -171,7 +171,7 @@ export const ddosAttackLesson: Lesson = {
                 { protocol: 'ATTACK', connectionId: 'conn-att3-router', count: 8, interval: 150, direction: 'forward' }
             ],
             ui: {
-                title: '🔴 DDoS ATTACK IN PROGRESS',
+                title: '� DDoS ATTACK IN PROGRESS',
                 subtitle: 'Server being flooded with requests',
                 details: [
                     'Traffic spike: 10,000% above normal',
@@ -201,7 +201,7 @@ export const ddosAttackLesson: Lesson = {
                 { id: 'conn-firewall-server', style: 'encrypted' }
             ],
             ui: {
-                title: '🛡️ Defenses Activated',
+                title: ' Defenses Activated',
                 subtitle: 'Rate limiting and IP blocking enabled',
                 details: [
                     'WAF rules updated',
@@ -233,7 +233,7 @@ export const ddosAttackLesson: Lesson = {
                 { protocol: 'HTTPS', connectionId: 'conn-user2-router', count: 2, direction: 'forward' }
             ],
             ui: {
-                title: '✅ Attack Mitigated',
+                title: ' Attack Mitigated',
                 subtitle: 'Normal operations restored',
                 details: [
                     'Malicious IPs blocked',

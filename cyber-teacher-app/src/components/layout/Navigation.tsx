@@ -6,10 +6,10 @@ import { useState } from 'react';
 import { SettingsPanel } from '@/components/ui/SettingsPanel';
 
 const navItems = [
-    { name: 'Lessons', href: '/lessons', icon: '📚' },
-    { name: 'Simulation', href: '/simulation', icon: '🖥️' },
-    { name: 'Sandbox', href: '/sandbox', icon: '⚔️' },
-    { name: 'About', href: '/about', icon: 'ℹ️' },
+    { name: 'Lessons', href: '/lessons', icon: '' },
+    { name: 'Simulation', href: '/simulation', icon: '' },
+    { name: 'Sandbox', href: '/sandbox', icon: '' },
+    { name: 'About', href: '/about', icon: 'ℹ' },
 ];
 
 export function Navigation() {
@@ -35,7 +35,7 @@ export function Navigation() {
                             boxShadow: '0 0 20px rgba(34, 211, 238, 0.4)'
                         }}
                     >
-                        <span className="text-lg md:text-xl">🛡️</span>
+                        <span className="text-lg md:text-xl"></span>
                     </div>
                     <div className="hidden sm:block">
                         <h1
@@ -84,7 +84,7 @@ export function Navigation() {
                         style={{ color: '#64748B' }}
                         title="Settings"
                     >
-                        ⚙️
+                        ⚙
                     </button>
 
                     {/* Sign In - Desktop */}
@@ -102,7 +102,7 @@ export function Navigation() {
                         }}
                     >
                         <span className="hidden sm:inline">Start Defense</span>
-                        <span className="sm:hidden">▶️</span>
+                        <span className="sm:hidden">▶</span>
                     </Link>
 
                     {/* Mobile Menu Button */}
@@ -149,7 +149,7 @@ export function Navigation() {
                             className="w-full text-left px-6 py-3 text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 flex items-center gap-3 border-b"
                             style={{ borderColor: 'rgba(71, 85, 105, 0.3)' }}
                         >
-                            <span>⚙️</span>
+                            <span>⚙</span>
                             Settings
                         </button>
                         <button

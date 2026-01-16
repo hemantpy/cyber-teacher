@@ -9,8 +9,8 @@ import { LessonStep, Lesson } from '@/types/lessons';
 
 // Available lessons
 const LESSONS = [
-    { id: 'lesson-01', name: 'Network Boot', lesson: networkBootLesson, icon: '🖥️' },
-    { id: 'lesson-02', name: 'DDoS Attack', lesson: ddosAttackLesson, icon: '⚔️' }
+    { id: 'lesson-01', name: 'Network Boot', lesson: networkBootLesson, icon: '' },
+    { id: 'lesson-02', name: 'DDoS Attack', lesson: ddosAttackLesson, icon: '' }
 ];
 
 

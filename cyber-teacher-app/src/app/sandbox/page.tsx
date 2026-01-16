@@ -7,19 +7,19 @@ import { useSimulationStore } from '@/store/simulation-store';
 import { useSound } from '@/hooks/use-sound';
 
 const ATTACK_TYPES = [
-    { id: 'ddos', label: 'DDoS', icon: '⚡', description: 'Overwhelm with traffic', damage: 15, color: '#EF4444' },
-    { id: 'sql', label: 'SQL Injection', icon: '💉', description: 'Database attack', damage: 20, color: '#F97316' },
-    { id: 'malware', label: 'Malware', icon: '🦠', description: 'Deploy malware', damage: 25, color: '#DC2626' },
-    { id: 'phishing', label: 'Phishing', icon: '🎣', description: 'Social engineering', damage: 12, color: '#FBBF24' },
-    { id: 'mitm', label: 'MITM', icon: '👁️', description: 'Intercept data', damage: 10, color: '#F472B6' },
+    { id: 'ddos', label: 'DDoS', icon: '[D]', description: 'Overwhelm with traffic', damage: 15, color: '#EF4444' },
+    { id: 'sql', label: 'SQL Injection', icon: '[SQL]', description: 'Database attack', damage: 20, color: '#F97316' },
+    { id: 'malware', label: 'Malware', icon: '[M]', description: 'Deploy malware', damage: 25, color: '#DC2626' },
+    { id: 'phishing', label: 'Phishing', icon: '[P]', description: 'Social engineering', damage: 12, color: '#FBBF24' },
+    { id: 'mitm', label: 'MITM', icon: '[X]', description: 'Intercept data', damage: 10, color: '#F472B6' },
 ];
 
 const DEFENSE_TYPES = [
-    { id: 'firewall', label: 'Firewall', icon: '🔥', color: '#22C55E', heal: 10 },
-    { id: 'block', label: 'Block IP', icon: '🚫', color: '#EF4444', heal: 8 },
-    { id: 'rate', label: 'Rate Limit', icon: '⏱️', color: '#F59E0B', heal: 12 },
-    { id: 'dns', label: 'DNS Filter', icon: '🔍', color: '#3B82F6', heal: 15 },
-    { id: 'quarantine', label: 'Quarantine', icon: '🔒', color: '#8B5CF6', heal: 20 },
+    { id: 'firewall', label: 'Firewall', icon: '[FW]', color: '#22C55E', heal: 10 },
+    { id: 'block', label: 'Block IP', icon: '[BLK]', color: '#EF4444', heal: 8 },
+    { id: 'rate', label: 'Rate Limit', icon: '[RL]', color: '#F59E0B', heal: 12 },
+    { id: 'dns', label: 'DNS Filter', icon: '[DNS]', color: '#3B82F6', heal: 15 },
+    { id: 'quarantine', label: 'Quarantine', icon: '[Q]', color: '#8B5CF6', heal: 20 },
 ];
 
 interface LogEntry {
@@ -195,7 +195,7 @@ export default function SandboxPage() {
         playAttack(attack.id as 'ddos' | 'sql' | 'phishing' | 'malware');
         damageNetwork(attack.damage);
 
-        addSystemLog('attack', `⚠️ ${attack.label} Attack Initiated`, attack.color);
+        addSystemLog('attack', `[!] ${attack.label} Attack Initiated`, attack.color);
         addSystemLog('attack', `Targeting: Web Server (10.0.0.5)`, attack.color);
         addLog({ type: 'attack', message: `${attack.label} attack launched!`, protocol: 'ATTACK' });
 
@@ -206,7 +206,7 @@ export default function SandboxPage() {
 
         if (networkHealth - attack.damage <= 0) {
             playError();
-            addSystemLog('error', '💀 CRITICAL: Network Compromised!', '#EF4444');
+            addSystemLog('error', '[X] CRITICAL: Network Compromised!', '#EF4444');
         }
     }, [playAttack, damageNetwork, addLog, networkHealth, playError, addSystemLog]);
 
@@ -214,7 +214,7 @@ export default function SandboxPage() {
         playDefense();
         healNetwork(defense.heal);
 
-        addSystemLog('defense', `🛡️ ${defense.label} Activated`, defense.color);
+        addSystemLog('defense', `[+] ${defense.label} Activated`, defense.color);
         addSystemLog('info', `Defense Status: ACTIVE`, defense.color);
         addLog({ type: 'defense', message: `${defense.label} activated!`, protocol: 'DEFENSE' });
 
@@ -225,7 +225,7 @@ export default function SandboxPage() {
 
         if (networkHealth + defense.heal >= 100) {
             playSuccess();
-            addSystemLog('info', '✅ Network Fully Secured', '#22C55E');
+            addSystemLog('info', '[OK] Network Fully Secured', '#22C55E');
         }
     }, [playDefense, healNetwork, addLog, networkHealth, playSuccess, addSystemLog]);
 
@@ -233,7 +233,7 @@ export default function SandboxPage() {
         healNetwork(100);
         clearLogs();
         setSystemLogs([]);
-        addSystemLog('info', '🔄 Network Reset to Healthy State', '#22D3EE');
+        addSystemLog('info', '[R] Network Reset to Healthy State', '#22D3EE');
     }, [healNetwork, clearLogs, addSystemLog]);
 
     const healthColor = networkHealth > 70 ? '#22C55E' : networkHealth > 40 ? '#F59E0B' : '#EF4444';
@@ -254,7 +254,7 @@ export default function SandboxPage() {
                     }}
                 >
                     <div className="flex items-center gap-2 mb-2">
-                        <span className="text-red-500">⚔️</span>
+                        <span className="text-red-500">[ATK]</span>
                         <span className="text-xs font-bold text-red-400 tracking-wider">ATTACK TOOLS</span>
                     </div>
                     {ATTACK_TYPES.map((attack) => (
@@ -374,7 +374,7 @@ export default function SandboxPage() {
                         }}
                     >
                         <div className="flex items-center justify-between px-3 py-1.5" style={{ borderBottom: '1px solid rgba(34, 211, 238, 0.1)' }}>
-                            <span className="text-xs font-bold text-slate-400">📡 SYSTEM LOGS</span>
+                            <span className="text-xs font-bold text-slate-400">[LOG] SYSTEM LOGS</span>
                             <button
                                 onClick={() => setSystemLogs([])}
                                 className="text-[10px] text-slate-500 hover:text-white transition-colors"
@@ -406,7 +406,7 @@ export default function SandboxPage() {
                     }}
                 >
                     <div className="flex items-center gap-2 mb-2">
-                        <span className="text-green-500">🛡️</span>
+                        <span className="text-green-500">[DEF]</span>
                         <span className="text-xs font-bold text-green-400 tracking-wider">DEFENSE CONTROLS</span>
                     </div>
                     {DEFENSE_TYPES.map((defense) => (

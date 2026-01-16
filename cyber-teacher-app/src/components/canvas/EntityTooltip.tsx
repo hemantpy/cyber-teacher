@@ -129,14 +129,14 @@ export function EntityTooltip() {
                 {/* Header */}
                 <div className="flex items-center gap-2 mb-2 pb-2 border-b border-slate-700">
                     <span className="text-lg">
-                        {entity.type === 'PC' && '💻'}
-                        {entity.type === 'Router' && '📡'}
-                        {entity.type === 'Server' && '🖥️'}
-                        {entity.type === 'DNS' && '📖'}
-                        {entity.type === 'ISP' && '🌐'}
-                        {entity.type === 'Firewall' && '🛡️'}
-                        {entity.type === 'Attacker' && '☠️'}
-                        {entity.type === 'Cloud' && '☁️'}
+                        {entity.type === 'PC' && ''}
+                        {entity.type === 'Router' && ''}
+                        {entity.type === 'Server' && ''}
+                        {entity.type === 'DNS' && ''}
+                        {entity.type === 'ISP' && ''}
+                        {entity.type === 'Firewall' && ''}
+                        {entity.type === 'Attacker' && ''}
+                        {entity.type === 'Cloud' && ''}
                     </span>
                     <div>
                         <p className="text-sm font-semibold text-white">

@@ -179,7 +179,7 @@ export function SimulationCanvas() {
                 // Entity clicked - show detailed info
                 addLog({
                     type: 'info',
-                    message: `📍 Inspecting: ${entity.metadata.label || entity.type}`,
+                    message: `� Inspecting: ${entity.metadata.label || entity.type}`,
                     entityId: entity.id,
                     protocol: entity.type
                 });

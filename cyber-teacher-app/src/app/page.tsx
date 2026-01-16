@@ -86,7 +86,7 @@ export default function HomePage() {
               color: '#22D3EE'
             }}
           >
-            📚 Start Lesson 1
+             Start Lesson 1
           </Link>
 
           <Link
@@ -98,7 +98,7 @@ export default function HomePage() {
               color: '#A78BFA'
             }}
           >
-            🗺️ Campaign
+             Campaign
           </Link>
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
             {/* Screen Content */}
             <div className="text-center">
               <div className="text-4xl md:text-5xl mb-2">
-                {systemStatus === 'connecting' ? '🌐' : '🛡️'}
+                {systemStatus === 'connecting' ? '' : ''}
               </div>
               <p className="text-xs text-slate-400">
                 {systemStatus === 'initializing' && 'Initializing NIC...'}
@@ -238,7 +238,7 @@ export default function HomePage() {
               }}
             />
             <span className="relative flex items-center gap-3">
-              <span>🌐</span>
+              <span></span>
               CONNECT TO INTERNET
             </span>
           </Link>

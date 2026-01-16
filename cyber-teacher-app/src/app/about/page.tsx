@@ -18,7 +18,7 @@ export default function AboutPage() {
                             boxShadow: '0 0 40px rgba(34, 211, 238, 0.4)'
                         }}
                     >
-                        <span className="text-4xl">🛡️</span>
+                        <span className="text-4xl"></span>
                     </div>
 
                     {/* Title */}
@@ -61,7 +61,7 @@ export default function AboutPage() {
                                 border: '1px solid rgba(71, 85, 105, 0.4)'
                             }}
                         >
-                            <div className="text-3xl mb-3">📚</div>
+                            <div className="text-3xl mb-3"></div>
                             <h3 className="text-lg font-semibold text-white mb-2">7 Lessons</h3>
                             <p className="text-sm text-slate-400">From boot sequences to advanced attack defense</p>
                         </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                                 border: '1px solid rgba(71, 85, 105, 0.4)'
                             }}
                         >
-                            <div className="text-3xl mb-3">⚔️</div>
+                            <div className="text-3xl mb-3"></div>
                             <h3 className="text-lg font-semibold text-white mb-2">8 Attack Types</h3>
                             <p className="text-sm text-slate-400">DDoS, SQL Injection, Trojans, and more</p>
                         </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
                                 border: '1px solid rgba(71, 85, 105, 0.4)'
                             }}
                         >
-                            <div className="text-3xl mb-3">🛡️</div>
+                            <div className="text-3xl mb-3"></div>
                             <h3 className="text-lg font-semibold text-white mb-2">6 Defense Tools</h3>
                             <p className="text-sm text-slate-400">WAF, Rate Limiting, Quarantine, and more</p>
                         </div>

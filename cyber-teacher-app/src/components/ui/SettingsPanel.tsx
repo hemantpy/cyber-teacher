@@ -89,7 +89,7 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                     style={{ borderColor: 'rgba(34, 211, 238, 0.2)' }}
                 >
                     <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                        ⚙️ Settings
+                        ⚙ Settings
                     </h2>
                     <button
                         onClick={onClose}
@@ -106,9 +106,9 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                     style={{ borderColor: 'rgba(34, 211, 238, 0.1)' }}
                 >
                     {[
-                        { id: 'ai' as const, label: '🤖 AI', icon: '🤖' },
-                        { id: 'sound' as const, label: '🔊 Sound', icon: '🔊' },
-                        { id: 'about' as const, label: 'ℹ️ About', icon: 'ℹ️' },
+                        { id: 'ai' as const, label: '� AI', icon: '�' },
+                        { id: 'sound' as const, label: ' Sound', icon: '' },
+                        { id: 'about' as const, label: 'ℹ About', icon: 'ℹ' },
                     ].map((tab) => (
                         <button
                             key={tab.id}
@@ -200,10 +200,10 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                     {activeTab === 'sound' && soundSettings && (
                         <div className="space-y-6">
                             {([
-                                { category: 'sfx' as SoundCategory, label: 'Sound Effects', icon: '🔔' },
-                                { category: 'music' as SoundCategory, label: 'Background Music', icon: '🎵' },
-                                { category: 'ambience' as SoundCategory, label: 'Ambience', icon: '🌊' },
-                                { category: 'voice' as SoundCategory, label: 'Voice/Narration', icon: '🎙️' },
+                                { category: 'sfx' as SoundCategory, label: 'Sound Effects', icon: '�' },
+                                { category: 'music' as SoundCategory, label: 'Background Music', icon: '�' },
+                                { category: 'ambience' as SoundCategory, label: 'Ambience', icon: '' },
+                                { category: 'voice' as SoundCategory, label: 'Voice/Narration', icon: '�' },
                             ]).map(({ category, label, icon }) => (
                                 <div key={category} className="space-y-2">
                                     <div className="flex items-center justify-between">
@@ -250,7 +250,7 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                                 }}
                             >
                                 <p className="text-xs text-slate-400">
-                                    🔊 <strong className="text-slate-300">Note:</strong> Sound uses synthesized tones
+                                     <strong className="text-slate-300">Note:</strong> Sound uses synthesized tones
                                     that work without external audio files. Click anywhere to enable audio.
                                 </p>
                             </div>
@@ -268,7 +268,7 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                                         boxShadow: '0 0 30px rgba(34, 211, 238, 0.4)'
                                     }}
                                 >
-                                    <span className="text-2xl">🛡️</span>
+                                    <span className="text-2xl"></span>
                                 </div>
                                 <h3 className="text-xl font-bold text-white">CyberGuard</h3>
                                 <p className="text-sm text-slate-400">Interactive Cybersecurity Education</p>
@@ -280,21 +280,21 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
                                     className="p-3 rounded-lg flex items-center justify-between"
                                     style={{ background: 'rgba(30, 41, 59, 0.5)' }}
                                 >
-                                    <span className="text-sm text-slate-300">📚 Lessons</span>
+                                    <span className="text-sm text-slate-300"> Lessons</span>
                                     <span className="text-sm font-bold text-cyan-400">7</span>
                                 </div>
                                 <div
                                     className="p-3 rounded-lg flex items-center justify-between"
                                     style={{ background: 'rgba(30, 41, 59, 0.5)' }}
                                 >
-                                    <span className="text-sm text-slate-300">⚔️ Attack Types</span>
+                                    <span className="text-sm text-slate-300"> Attack Types</span>
                                     <span className="text-sm font-bold text-red-400">8</span>
                                 </div>
                                 <div
                                     className="p-3 rounded-lg flex items-center justify-between"
                                     style={{ background: 'rgba(30, 41, 59, 0.5)' }}
                                 >
-                                    <span className="text-sm text-slate-300">🛡️ Defense Tools</span>
+                                    <span className="text-sm text-slate-300"> Defense Tools</span>
                                     <span className="text-sm font-bold text-green-400">6</span>
                                 </div>
                             </div>

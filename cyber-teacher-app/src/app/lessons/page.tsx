@@ -44,7 +44,7 @@ function LessonCardComponent({ lesson }: { lesson: LessonCard }) {
                     Lesson {lesson.number}
                 </span>
                 <span className="flex items-center gap-1 text-xs text-slate-400">
-                    <span>⏱️</span>
+                    <span></span>
                     {lesson.duration} min
                 </span>
             </div>

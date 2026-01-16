@@ -50,7 +50,7 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                     {/* Quick Start */}
                     <section>
                         <h3 className="text-lg font-semibold text-cyan-400 mb-4 flex items-center gap-2">
-                            <span>🚀</span> Quick Start
+                            <span></span> Quick Start
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {[
@@ -58,19 +58,19 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                                     step: '1',
                                     title: 'Choose a Lesson',
                                     description: 'Browse our 7 interactive cybersecurity lessons',
-                                    icon: '📚'
+                                    icon: ''
                                 },
                                 {
                                     step: '2',
                                     title: 'Watch & Learn',
                                     description: 'See network protocols and attacks visualized',
-                                    icon: '👀'
+                                    icon: '�'
                                 },
                                 {
                                     step: '3',
                                     title: 'Practice Defense',
                                     description: 'Use defense tools to protect your network',
-                                    icon: '🛡️'
+                                    icon: ''
                                 }
                             ].map((item) => (
                                 <div
@@ -103,7 +103,7 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                     {/* Interface Overview */}
                     <section>
                         <h3 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
-                            <span>🖥️</span> Interface Overview
+                            <span></span> Interface Overview
                         </h3>
                         <div className="grid grid-cols-2 gap-3">
                             {[
@@ -135,7 +135,7 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                     {/* Keyboard Shortcuts */}
                     <section>
                         <h3 className="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
-                            <span>⌨️</span> Keyboard Shortcuts
+                            <span>⌨</span> Keyboard Shortcuts
                         </h3>
                         <div className="grid grid-cols-2 gap-2">
                             {KEYBOARD_SHORTCUTS.map((shortcut) => (
@@ -163,18 +163,18 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                     {/* Attack Types */}
                     <section>
                         <h3 className="text-lg font-semibold text-red-400 mb-4 flex items-center gap-2">
-                            <span>⚔️</span> Attack Types You'll Learn
+                            <span></span> Attack Types You'll Learn
                         </h3>
                         <div className="flex flex-wrap gap-2">
                             {[
-                                { name: 'DDoS', icon: '🌊' },
-                                { name: 'SQL Injection', icon: '💉' },
-                                { name: 'Man-in-the-Middle', icon: '👁️' },
-                                { name: 'Phishing', icon: '🎣' },
-                                { name: 'Malware', icon: '🦠' },
-                                { name: 'Trojan Horse', icon: '🐴' },
-                                { name: 'Ransomware', icon: '🔐' },
-                                { name: 'Zero-Day', icon: '💀' },
+                                { name: 'DDoS', icon: '' },
+                                { name: 'SQL Injection', icon: '' },
+                                { name: 'Man-in-the-Middle', icon: '�' },
+                                { name: 'Phishing', icon: '' },
+                                { name: 'Malware', icon: '' },
+                                { name: 'Trojan Horse', icon: '�' },
+                                { name: 'Ransomware', icon: '' },
+                                { name: 'Zero-Day', icon: '' },
                             ].map((attack) => (
                                 <span
                                     key={attack.name}
@@ -195,7 +195,7 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                     {/* Tips */}
                     <section>
                         <h3 className="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
-                            <span>💡</span> Pro Tips
+                            <span></span> Pro Tips
                         </h3>
                         <div className="space-y-2">
                             {[
@@ -236,7 +236,7 @@ export function HelpOverlay({ isOpen, onClose }: HelpOverlayProps) {
                             color: '#0F172A'
                         }}
                     >
-                        Got it! 👍
+                        Got it! �
                     </button>
                 </div>
             </div>

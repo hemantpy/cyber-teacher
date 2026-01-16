@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🛡️ CyberGuard
+# CyberGuard
 
 ### Interactive Network Security Simulator
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Now-00D4FF?style=for-the-badge)](https://cyber-teacher-app.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Now-00D4FF?style=for-the-badge)](https://cyber-teacher-app.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -12,61 +12,61 @@
 
 **Learn cybersecurity through real-time, interactive network simulations.**
 
-[Live Demo](https://cyber-teacher-app.vercel.app) • [Features](#-features) • [Getting Started](#-getting-started) • [Tech Stack](#-tech-stack) • [Roadmap](#-roadmap)
+[Live Demo](https://cyber-teacher-app.vercel.app) • [Features](#features) • [Getting Started](#getting-started) • [Tech Stack](#tech-stack) • [Roadmap](#roadmap)
 
 ---
 
 </div>
 
-## 🎯 What is CyberGuard?
+## What is CyberGuard?
 
 CyberGuard is a **next-generation cybersecurity education platform** that transforms complex network security concepts into visual, interactive experiences. Instead of reading textbooks, you **simulate real attacks and defenses** in a safe, sandboxed environment.
 
-> 🎓 Perfect for students, educators, and security professionals looking to understand attack vectors and defense mechanisms.
+> Perfect for students, educators, and security professionals looking to understand attack vectors and defense mechanisms.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🎮 Interactive Simulation Engine
+### Interactive Simulation Engine
 - **Real-time packet visualization** — Watch data flow through your network
 - **Dynamic entity states** — See servers, firewalls, and devices respond to events
 - **Smooth 60 FPS animations** — Powered by GSAP for buttery-smooth visuals
 
-### ⚔️ Attack Simulation
+### Attack Simulation
 | Attack Type | Description |
 |-------------|-------------|
-| 🌊 **DDoS Flood** | Overwhelm servers with traffic |
-| 💉 **SQL Injection** | Database exploitation attacks |
-| 👤 **Man-in-the-Middle** | Intercept network communications |
-| 🎣 **Phishing** | Social engineering simulations |
-| 🦠 **Malware** | Malicious payload deployment |
-| 🔐 **Ransomware** | Encryption-based attacks |
+| **DDoS Flood** | Overwhelm servers with traffic |
+| **SQL Injection** | Database exploitation attacks |
+| **Man-in-the-Middle** | Intercept network communications |
+| **Phishing** | Social engineering simulations |
+| **Malware** | Malicious payload deployment |
+| **Ransomware** | Encryption-based attacks |
 
-### 🛡️ Defense Mechanisms
+### Defense Mechanisms
 | Defense Type | Description |
 |--------------|-------------|
-| 🔥 **Web Firewall (WAF)** | Filter malicious requests |
-| 🚫 **IP Blocking** | Blacklist suspicious sources |
-| ⏱️ **Rate Limiting** | Throttle excessive requests |
-| 🌐 **DNS Filtering** | Block malicious domains |
-| 🔒 **Quarantine** | Isolate compromised systems |
-| 💾 **Backup Restore** | Recover from attacks |
+| **Web Firewall (WAF)** | Filter malicious requests |
+| **IP Blocking** | Blacklist suspicious sources |
+| **Rate Limiting** | Throttle excessive requests |
+| **DNS Filtering** | Block malicious domains |
+| **Quarantine** | Isolate compromised systems |
+| **Backup Restore** | Recover from attacks |
 
-### 📚 Guided Lessons
+### Guided Lessons
 - **Step-by-step tutorials** — Learn attack/defense workflows
 - **Interactive quizzes** — Test your knowledge
 - **Progress tracking** — Track your learning journey
 - **AI Explanations** — Get context-aware guidance
 
-### 🧪 Sandbox Mode
+### Sandbox Mode
 - **Free experimentation** — No restrictions, pure learning
 - **Custom network topologies** — Build your own networks
 - **Real-time health monitoring** — Watch system health change
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
 <div align="center">
 
@@ -78,7 +78,7 @@ CyberGuard is a **next-generation cybersecurity education platform** that transf
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+ 
@@ -100,7 +100,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the magic ✨
+Open [http://localhost:3000](http://localhost:3000) to see it in action.
 
 ### Quick Deploy
 
@@ -111,7 +111,7 @@ npm run deploy
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |----------|------------|
@@ -127,21 +127,21 @@ npm run deploy
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Core simulation engine
 - [x] Attack & defense system
 - [x] Lesson framework with quizzes
 - [x] Sandbox mode
-- [ ] 🔜 AI-powered attack explanations (Gemini)
-- [ ] 🔜 Multiplayer mode (attack vs defense teams)
-- [ ] 🔜 Custom scenario builder
-- [ ] 🔜 Certification system
-- [ ] 🔜 Mobile responsive design
+- [ ] AI-powered attack explanations (Gemini)
+- [ ] Multiplayer mode (attack vs defense teams)
+- [ ] Custom scenario builder
+- [ ] Certification system
+- [ ] Mobile responsive design
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to:
 
@@ -153,7 +153,7 @@ Contributions are welcome! Feel free to:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -161,7 +161,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Built with ❤️ for cybersecurity education**
+**Built for cybersecurity education**
 
 [![Star this repo](https://img.shields.io/github/stars/hemantio/cyber-teacher?style=social)](https://github.com/hemantio/cyber-teacher)
 

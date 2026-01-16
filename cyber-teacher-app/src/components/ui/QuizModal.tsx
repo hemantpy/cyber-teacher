@@ -57,13 +57,13 @@ export function QuizModal({ quiz, isOpen, onClose, onComplete }: QuizModalProps)
 
         if (percentage >= 80) {
             message = 'Outstanding! You\'re a Cyber Master!';
-            emoji = '🏆';
+            emoji = '�';
         } else if (percentage >= 60) {
             message = 'Good job! Keep practicing.';
-            emoji = '👍';
+            emoji = '�';
         } else {
             message = 'Review the lesson and try again.';
-            emoji = '📚';
+            emoji = '';
         }
 
         return (
@@ -158,8 +158,8 @@ export function QuizModal({ quiz, isOpen, onClose, onComplete }: QuizModalProps)
                                         {String.fromCharCode(65 + idx)}
                                     </div>
                                     <span className="flex-1">{option}</span>
-                                    {isAnswered && idx === currentQuestion.correctIndex && <span>✅</span>}
-                                    {isAnswered && idx === selectedOption && idx !== currentQuestion.correctIndex && <span>❌</span>}
+                                    {isAnswered && idx === currentQuestion.correctIndex && <span></span>}
+                                    {isAnswered && idx === selectedOption && idx !== currentQuestion.correctIndex && <span></span>}
                                 </div>
                             </button>
                         );

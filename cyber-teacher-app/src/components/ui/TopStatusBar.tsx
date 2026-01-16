@@ -165,7 +165,7 @@ export function TopStatusBar() {
                         color: '#22D3EE'
                     }}
                 >
-                    <span className="hidden sm:inline">📚 </span>Start Lesson 1
+                    <span className="hidden sm:inline"> </span>Start Lesson 1
                 </Link>
 
                 {/* Campaign Button */}
@@ -178,7 +178,7 @@ export function TopStatusBar() {
                         color: '#A78BFA'
                     }}
                 >
-                    <span>🗺️</span> Campaign
+                    <span></span> Campaign
                 </Link>
             </div>
         </header>
