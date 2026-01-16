@@ -2,20 +2,54 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { SettingsPanel } from '@/components/ui/SettingsPanel';
+import {
+    HomeIcon,
+    LessonsIcon,
+    CpuIcon,
+    SandboxIcon,
+    InfoIcon,
+    SettingsIcon,
+    PlayIcon,
+    CyberIcon,
+} from '@/components/ui/CyberIcons';
+import { Shield, Menu, X } from 'lucide-react';
+import anime from 'animejs';
 
 const navItems = [
-    { name: 'Lessons', href: '/lessons', icon: '' },
-    { name: 'Simulation', href: '/simulation', icon: '' },
-    { name: 'Sandbox', href: '/sandbox', icon: '' },
-    { name: 'About', href: '/about', icon: 'ℹ' },
+    { name: 'Lessons', href: '/lessons', Icon: LessonsIcon },
+    { name: 'Simulation', href: '/simulation', Icon: CpuIcon },
+    { name: 'Sandbox', href: '/sandbox', Icon: SandboxIcon },
+    { name: 'About', href: '/about', Icon: InfoIcon },
 ];
 
 export function Navigation() {
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [settingsOpen, setSettingsOpen] = useState(false);
+    const activeIndicatorRef = useRef<HTMLDivElement>(null);
+    const navRef = useRef<HTMLDivElement>(null);
+
+    // Animated underline position
+    useEffect(() => {
+        if (!navRef.current || !activeIndicatorRef.current) return;
+
+        const activeLink = navRef.current.querySelector('[data-active="true"]');
+        if (activeLink) {
+            const rect = activeLink.getBoundingClientRect();
+            const navRect = navRef.current.getBoundingClientRect();
+
+            anime({
+                targets: activeIndicatorRef.current,
+                left: rect.left - navRect.left,
+                width: rect.width,
+                opacity: 1,
+                duration: 300,
+                easing: 'easeOutExpo',
+            });
+        }
+    }, [pathname]);
 
     return (
         <>
@@ -35,7 +69,7 @@ export function Navigation() {
                             boxShadow: '0 0 20px rgba(34, 211, 238, 0.4)'
                         }}
                     >
-                        <span className="text-lg md:text-xl"></span>
+                        <CyberIcon icon={Shield} size="md" color="#0F172A" />
                     </div>
                     <div className="hidden sm:block">
                         <h1
@@ -52,23 +86,33 @@ export function Navigation() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-1">
+                <div ref={navRef} className="hidden md:flex items-center gap-1 relative">
+                    {/* Animated underline indicator */}
+                    <div
+                        ref={activeIndicatorRef}
+                        className="absolute bottom-0 h-0.5 rounded-full opacity-0"
+                        style={{
+                            background: 'linear-gradient(90deg, #22D3EE, #3B82F6)',
+                            boxShadow: '0 0 10px rgba(34, 211, 238, 0.5)',
+                        }}
+                    />
+
                     {navItems.map((item) => {
                         const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
                         return (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${isActive
-                                    ? 'text-cyan-400'
-                                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                                data-active={isActive}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${isActive
+                                        ? 'text-cyan-400'
+                                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                                     }`}
                                 style={isActive ? {
                                     background: 'rgba(34, 211, 238, 0.1)',
-                                    boxShadow: '0 0 10px rgba(34, 211, 238, 0.2)'
                                 } : {}}
                             >
-                                <span className="mr-1.5">{item.icon}</span>
+                                <item.Icon size="sm" glow={isActive} glowIntensity={isActive ? 8 : 0} />
                                 {item.name}
                             </Link>
                         );
@@ -80,11 +124,14 @@ export function Navigation() {
                     {/* Settings Button */}
                     <button
                         onClick={() => setSettingsOpen(true)}
-                        className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-700/50"
-                        style={{ color: '#64748B' }}
+                        className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:bg-slate-700/50 group"
                         title="Settings"
                     >
-                        ⚙
+                        <SettingsIcon
+                            size="sm"
+                            color="#64748B"
+                            className="group-hover:text-white transition-colors"
+                        />
                     </button>
 
                     {/* Sign In - Desktop */}
@@ -95,14 +142,14 @@ export function Navigation() {
                     {/* Start Defense CTA */}
                     <Link
                         href="/simulation"
-                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105"
+                        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2"
                         style={{
                             background: 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%)',
                             boxShadow: '0 4px 15px rgba(139, 92, 246, 0.4)'
                         }}
                     >
-                        <span className="hidden sm:inline">Start Defense</span>
-                        <span className="sm:hidden">▶</span>
+                        <PlayIcon size="xs" color="#fff" />
+                        <span className="hidden sm:inline text-white">Start Defense</span>
                     </Link>
 
                     {/* Mobile Menu Button */}
@@ -110,7 +157,11 @@ export function Navigation() {
                         className="md:hidden p-2 text-slate-400 hover:text-white"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        {mobileMenuOpen ? '✕' : '☰'}
+                        {mobileMenuOpen ? (
+                            <CyberIcon icon={X} size="md" />
+                        ) : (
+                            <CyberIcon icon={Menu} size="md" />
+                        )}
                     </button>
                 </div>
 
@@ -131,12 +182,12 @@ export function Navigation() {
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`flex items-center gap-3 px-6 py-3 text-sm font-medium border-b transition-colors ${isActive
-                                        ? 'text-cyan-400 bg-cyan-500/10'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                                            ? 'text-cyan-400 bg-cyan-500/10'
+                                            : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
                                         }`}
                                     style={{ borderColor: 'rgba(71, 85, 105, 0.3)' }}
                                 >
-                                    <span>{item.icon}</span>
+                                    <item.Icon size="sm" glow={isActive} />
                                     {item.name}
                                 </Link>
                             );
@@ -149,7 +200,7 @@ export function Navigation() {
                             className="w-full text-left px-6 py-3 text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 flex items-center gap-3 border-b"
                             style={{ borderColor: 'rgba(71, 85, 105, 0.3)' }}
                         >
-                            <span>⚙</span>
+                            <SettingsIcon size="sm" />
                             Settings
                         </button>
                         <button
