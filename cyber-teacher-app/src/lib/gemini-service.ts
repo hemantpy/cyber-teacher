@@ -41,13 +41,13 @@ This process happens in milliseconds and gives your computer:
 
     ddos: `**DDoS (Distributed Denial of Service)** attacks overwhelm a target with traffic:
 
-🌊 **How it works:**
+[ATTACK] **How it works:**
 - Attackers control thousands of compromised computers (botnet)
 - All devices send requests simultaneously to the target
 - The target's resources are exhausted
 - Legitimate users can't access the service
 
-🛡️ **Defense strategies:**
+[DEFENSE] **Defense strategies:**
 - **Rate Limiting**: Restrict requests per IP
 - **Traffic Analysis**: Identify unusual patterns
 - **CDN/WAF**: Distribute and filter traffic
@@ -55,13 +55,13 @@ This process happens in milliseconds and gives your computer:
 
     sqlInjection: `**SQL Injection** attacks exploit vulnerable database queries:
 
-💉 **How it works:**
+[ATTACK] **How it works:**
 - Attacker enters malicious SQL code in input fields
 - Vulnerable applications don't sanitize input properly
 - The database executes the malicious query
 - Attacker gains unauthorized access or data
 
-🛡️ **Prevention:**
+[DEFENSE] **Prevention:**
 - **Parameterized Queries**: Never concatenate user input
 - **Input Validation**: Sanitize all user input
 - **WAF**: Web Application Firewall filters malicious requests
@@ -69,13 +69,13 @@ This process happens in milliseconds and gives your computer:
 
     trojan: `**Trojan Horse** malware disguises itself as legitimate software:
 
-🐴 **How it works:**
+[ATTACK] **How it works:**
 - Appears as useful software (game, tool, etc.)
 - User installs it thinking it's safe
 - Hidden malicious code activates
 - Opens backdoors for attackers
 
-🛡️ **Protection:**
+[DEFENSE] **Protection:**
 - Download only from trusted sources
 - Use antivirus software
 - Keep systems updated
@@ -83,13 +83,13 @@ This process happens in milliseconds and gives your computer:
 
     mitm: `**Man-in-the-Middle (MitM)** attacks intercept communications:
 
-👤 **How it works:**
+[ATTACK] **How it works:**
 - Attacker positions between victim and server
 - All traffic passes through the attacker
 - They can read, modify, or inject data
 - Victims are unaware of the interception
 
-🛡️ **Prevention:**
+[DEFENSE] **Prevention:**
 - **HTTPS**: Encrypted connections
 - **Certificate Verification**: Check site certificates
 - **VPN**: Secure tunneling
@@ -98,15 +98,19 @@ This process happens in milliseconds and gives your computer:
     general: `Cybersecurity is about protecting systems, networks, and data from digital attacks.
 
 Key concepts:
-🔐 **Confidentiality**: Only authorized users access data
-🔏 **Integrity**: Data isn't altered without authorization  
-✅ **Availability**: Systems are accessible when needed
+[C] **Confidentiality**: Only authorized users access data
+[I] **Integrity**: Data isn't altered without authorization  
+[A] **Availability**: Systems are accessible when needed
 
 Remember: Security is a process, not a product. Stay vigilant, keep learning, and practice defense in depth!`,
 };
 
 class GeminiService {
     private static instance: GeminiService;
+
+    // AI feature is disabled for now - offline fallbacks work without API
+    private disabled: boolean = true;
+
     private config: GeminiConfig = {
         apiKey: null,
         model: 'gemini-2.0-flash',
@@ -115,14 +119,16 @@ class GeminiService {
     };
 
     private constructor() {
-        // Load API key from localStorage
-        if (typeof window !== 'undefined') {
-            const saved = localStorage.getItem('geminiApiKey');
-            if (saved) {
-                this.config.apiKey = saved;
-            }
-        }
+        // AI feature disabled - do not load API key
+        // When re-enabled, uncomment the following:
+        // if (typeof window !== 'undefined' && !this.disabled) {
+        //     const saved = localStorage.getItem('geminiApiKey');
+        //     if (saved) {
+        //         this.config.apiKey = saved;
+        //     }
+        // }
     }
+
 
     static getInstance(): GeminiService {
         if (!GeminiService.instance) {
@@ -143,6 +149,12 @@ class GeminiService {
     hasApiKey(): boolean {
         return !!this.config.apiKey;
     }
+
+    // Check if AI feature is disabled
+    isDisabled(): boolean {
+        return this.disabled;
+    }
+
 
     // Clear API key
     clearApiKey(): void {
@@ -261,7 +273,7 @@ Keep it to 1-2 sentences. Be encouraging and practical.`;
             return response.content;
         }
 
-        return `💡 Tip: ${this.getOfflineResponse(context).split('\n')[0]}`;
+        return `[TIP] ${this.getOfflineResponse(context).split('\n')[0]}`;
     }
 
     // Explain a node or system state
@@ -296,7 +308,7 @@ Give a helpful hint to guide them. Keep it to 1-2 sentences.`;
             return response.content;
         }
 
-        return `🎯 Focus on understanding how ${stepTitle.toLowerCase()} works. Watch the animation carefully!`;
+        return `[HINT] Focus on understanding how ${stepTitle.toLowerCase()} works. Watch the animation carefully!`;
     }
 
     // Summarize system logs
@@ -316,7 +328,7 @@ Provide a brief summary (2-3 sentences) of what's happening. Highlight any secur
             return response.content;
         }
 
-        return `📊 Summary: ${logs.length} events recorded. The network is ${logs.some((l) => l.includes('attack')) ? 'under attack! Deploy defenses.' : 'operating normally.'}`;
+        return `[SUMMARY] ${logs.length} events recorded. The network is ${logs.some((l) => l.includes('attack')) ? 'under attack! Deploy defenses.' : 'operating normally.'}`;
     }
 
     // Answer user question
@@ -375,7 +387,7 @@ Recommend the best defense strategy in 2-3 sentences. Be specific and actionable
             return response.content;
         }
 
-        return `🛡️ Recommended defense: Activate your WAF, enable rate limiting, and monitor traffic patterns. Quick action is key!`;
+        return `[DEFENSE] Recommended: Activate your WAF, enable rate limiting, and monitor traffic patterns. Quick action is key!`;
     }
 }
 

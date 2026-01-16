@@ -60,47 +60,47 @@ export default function SandboxPage() {
         setTimeout(() => {
             const entities = new Map();
 
-            // USER PC - Left side
+            // USER PC - Far Left
             entities.set('user-pc', {
                 id: 'user-pc',
                 type: 'PC',
-                position: { x: -300, y: 0 },
+                position: { x: -350, y: 0 },
                 status: 'active',
                 metadata: { label: 'USER PC', ip: '192.168.1.10' }
             });
 
-            // ROUTER - Center-left
+            // ROUTER - Left-center
             entities.set('router', {
                 id: 'router',
                 type: 'Router',
-                position: { x: -100, y: 0 },
+                position: { x: -150, y: 0 },
                 status: 'active',
                 metadata: { label: 'ROUTER', ip: '192.168.1.1' }
             });
 
-            // DNS SERVER - Bottom center
+            // DNS SERVER - Bottom
             entities.set('dns-server', {
                 id: 'dns-server',
                 type: 'DNS',
-                position: { x: 0, y: 120 },
+                position: { x: -50, y: 150 },
                 status: 'active',
                 metadata: { label: 'DNS SERVER', ip: '8.8.8.8' }
             });
 
-            // FIREWALL - Center
+            // FIREWALL - Center-top
             entities.set('firewall', {
                 id: 'firewall',
                 type: 'Firewall',
-                position: { x: 100, y: -60 },
+                position: { x: 50, y: -80 },
                 status: 'active',
                 metadata: { label: 'FIREWALL' }
             });
 
-            // WEB SERVER - Right side
+            // WEB SERVER - Right-center
             entities.set('web-server', {
                 id: 'web-server',
                 type: 'Server',
-                position: { x: 200, y: 0 },
+                position: { x: 180, y: 0 },
                 status: 'active',
                 metadata: { label: 'WEB SERVER', ip: '10.0.0.5' }
             });

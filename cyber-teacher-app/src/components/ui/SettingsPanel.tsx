@@ -128,116 +128,73 @@ export function SettingsPanel({ isOpen, onClose }: SettingsPanelProps) {
 
                 {/* Content */}
                 <div className="flex-1 overflow-y-auto p-6">
-                    {/* AI Tab */}
+                    {/* AI Tab - DISABLED FOR SECURITY */}
                     {activeTab === 'ai' && (
                         <div className="space-y-6">
                             <div>
-                                <h3 className="text-sm font-semibold text-white mb-2">Gemini API Key</h3>
-                                <p className="text-xs text-slate-400 mb-4">
-                                    Connect your Google Gemini API key for AI-powered explanations and coaching.
-                                    Get your free API key at{' '}
-                                    <a
-                                        href="https://aistudio.google.com/apikey"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-cyan-400 hover:underline"
-                                    >
-                                        Google AI Studio
-                                    </a>
-                                </p>
+                                <h3 className="text-sm font-semibold text-white mb-2">AI Assistant</h3>
 
-                                {hasApiKey ? (
-                                    <div className="space-y-3">
-                                        <div
-                                            className="flex items-center gap-2 px-4 py-3 rounded-lg"
-                                            style={{
-                                                background: 'rgba(34, 197, 94, 0.1)',
-                                                border: '1px solid rgba(34, 197, 94, 0.3)'
-                                            }}
-                                        >
-                                            <span className="text-green-400">✓</span>
-                                            <span className="text-sm text-green-400">API Key configured</span>
-                                        </div>
-                                        <div className="flex gap-2">
-                                            <button
-                                                onClick={handleTestApiKey}
-                                                className="flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-all"
-                                                style={{
-                                                    background: 'rgba(59, 130, 246, 0.2)',
-                                                    border: '1px solid rgba(59, 130, 246, 0.3)',
-                                                    color: '#60A5FA'
-                                                }}
-                                            >
-                                                {testStatus === 'testing' ? '⏳ Testing...' :
-                                                    testStatus === 'success' ? '✓ Working!' :
-                                                        testStatus === 'error' ? '✗ Failed' :
-                                                            '🧪 Test Connection'}
-                                            </button>
-                                            <button
-                                                onClick={handleClearApiKey}
-                                                className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
-                                                style={{
-                                                    background: 'rgba(239, 68, 68, 0.1)',
-                                                    border: '1px solid rgba(239, 68, 68, 0.3)',
-                                                    color: '#EF4444'
-                                                }}
-                                            >
-                                                Remove
-                                            </button>
+                                {/* Coming Soon Banner */}
+                                <div
+                                    className="p-4 rounded-lg mb-4 opacity-60"
+                                    style={{
+                                        background: 'rgba(71, 85, 105, 0.3)',
+                                        border: '1px solid rgba(71, 85, 105, 0.5)'
+                                    }}
+                                >
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-xl text-amber-400 font-bold">[!]</span>
+                                        <div>
+                                            <p className="text-sm font-semibold text-slate-300">Coming Soon</p>
+                                            <p className="text-xs text-slate-500">AI-powered explanations will be available in a future update</p>
                                         </div>
                                     </div>
-                                ) : (
-                                    <div className="space-y-3">
-                                        <div className="relative">
-                                            <input
-                                                type={showApiKey ? 'text' : 'password'}
-                                                value={apiKey}
-                                                onChange={(e) => setApiKey(e.target.value)}
-                                                placeholder="Enter your Gemini API key..."
-                                                className="w-full px-4 py-3 pr-10 rounded-lg text-sm outline-none"
-                                                style={{
-                                                    background: '#0F172A',
-                                                    border: '1px solid rgba(71, 85, 105, 0.5)',
-                                                    color: '#E2E8F0'
-                                                }}
-                                            />
-                                            <button
-                                                onClick={() => setShowApiKey(!showApiKey)}
-                                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
-                                            >
-                                                {showApiKey ? '👁️' : '👁️‍🗨️'}
-                                            </button>
-                                        </div>
-                                        <button
-                                            onClick={handleSaveApiKey}
-                                            disabled={!apiKey.trim()}
-                                            className="w-full px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-50"
+                                </div>
+
+                                {/* Greyed out input */}
+                                <div className="space-y-3 opacity-40 pointer-events-none">
+                                    <div className="relative">
+                                        <input
+                                            type="password"
+                                            placeholder="Gemini API key (disabled)"
+                                            disabled
+                                            className="w-full px-4 py-3 pr-10 rounded-lg text-sm outline-none cursor-not-allowed"
                                             style={{
-                                                background: 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)',
-                                                color: '#0F172A'
+                                                background: '#0F172A',
+                                                border: '1px solid rgba(71, 85, 105, 0.3)',
+                                                color: '#64748B'
                                             }}
-                                        >
-                                            Save API Key
-                                        </button>
+                                        />
                                     </div>
-                                )}
+                                    <button
+                                        disabled
+                                        className="w-full px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed"
+                                        style={{
+                                            background: 'rgba(71, 85, 105, 0.3)',
+                                            color: '#64748B'
+                                        }}
+                                    >
+                                        Save API Key
+                                    </button>
+                                </div>
                             </div>
 
                             <div
                                 className="p-4 rounded-lg"
                                 style={{
-                                    background: 'rgba(34, 211, 238, 0.05)',
-                                    border: '1px solid rgba(34, 211, 238, 0.1)'
+                                    background: 'rgba(34, 197, 94, 0.05)',
+                                    border: '1px solid rgba(34, 197, 94, 0.2)'
                                 }}
                             >
                                 <p className="text-xs text-slate-400">
-                                    💡 <strong className="text-slate-300">Tip:</strong> Even without an API key,
-                                    the app provides built-in explanations for all cybersecurity concepts.
-                                    The AI enhances the experience with personalized responses.
+                                    <strong className="text-green-400">[OK] Good news:</strong> The app works fully without AI!
+                                    All cybersecurity concepts have built-in explanations and the simulation
+                                    is completely functional.
                                 </p>
                             </div>
                         </div>
                     )}
+
 
                     {/* Sound Tab */}
                     {activeTab === 'sound' && soundSettings && (

@@ -213,9 +213,9 @@ function drawCyberNode(
     const { x, y } = entity.position;
     const color = CYBER_COLORS.node[entity.type.toLowerCase() as keyof typeof CYBER_COLORS.node] || '#3B82F6';
 
-    const boxWidth = 80;
-    const boxHeight = 70;
-    const iconSize = 28;
+    const boxWidth = 70;
+    const boxHeight = 60;
+    const iconSize = 24;
 
     ctx.save();
 
@@ -409,7 +409,7 @@ function drawCyberConnection(
     const angle = Math.atan2(dy, dx);
 
     // Offset from node edges
-    const offset = 50;
+    const offset = 45;
     const startX = x1 + Math.cos(angle) * offset;
     const startY = y1 + Math.sin(angle) * offset;
     const endX = x2 - Math.cos(angle) * offset;

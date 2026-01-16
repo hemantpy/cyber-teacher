@@ -111,7 +111,7 @@ class SoundManager {
             });
 
             this.initialized = true;
-            console.log('🔊 Sound Engine initialized');
+            console.log('[AUDIO] Sound Engine initialized');
         } catch (error) {
             console.warn('Failed to initialize audio context:', error);
         }
